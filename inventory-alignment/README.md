@@ -6,6 +6,15 @@ This opt-in preset wires the read-only [`speckit-inventory`](../speckit-inventor
 
 Install the companion extension first — the preset's prompts are inert without it:
 
+From the published release — install the extension first:
+
+```bash
+specify extension add speckit-inventory --from https://github.com/Yash-Chindam/spec-kit-inventory-alignment/releases/download/v0.1.0/speckit-inventory.zip
+specify preset add inventory-alignment --from https://github.com/Yash-Chindam/spec-kit-inventory-alignment/releases/download/v0.1.0/inventory-alignment.zip
+```
+
+Or from a local checkout:
+
 ```bash
 specify extension add --dev /path/to/speckit-inventory
 specify preset add --dev /path/to/inventory-alignment

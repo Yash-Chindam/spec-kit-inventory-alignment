@@ -6,6 +6,14 @@ It regenerates every live `FR-`, `NFR-`, `SC-`, `AC-`, and `T-` ID from the exis
 
 ## Install
 
+From the published release:
+
+```bash
+specify extension add speckit-inventory --from https://github.com/Yash-Chindam/spec-kit-inventory-alignment/releases/download/v0.1.0/speckit-inventory.zip
+```
+
+Or from a local checkout:
+
 ```bash
 specify extension add --dev /path/to/speckit-inventory
 ```
