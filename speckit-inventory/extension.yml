@@ -1,0 +1,45 @@
+schema_version: "1.0"
+
+extension:
+  id: speckit-inventory
+  name: "Spec Inventory"
+  version: "0.1.0"
+  description: "Generate a read-only JSON inventory and focused context packs for feature requirements and tasks"
+  author: "Yash Chindam"
+  repository: "https://github.com/Yash-Chindam/spec-kit-inventory-alignment"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.9.0"
+
+provides:
+  commands:
+    - name: speckit.speckit-inventory.list
+      file: commands/speckit.speckit-inventory.list.md
+      description: "Print the complete read-only JSON inventory of live requirement and task IDs"
+    - name: speckit.speckit-inventory.context
+      file: commands/speckit.speckit-inventory.context.md
+      description: "Print a focused JSON context pack for a feature task"
+  scripts:
+    - name: speckit-inventory
+      file: scripts/inventory.py
+      description: "Extract live requirement and task IDs as JSON"
+      runtimes: [python]
+
+hooks:
+  before_specify:
+    command: "speckit.speckit-inventory.list"
+    optional: true
+    prompt: "Load the live requirement inventory before writing requirements?"
+    description: "Surface every live requirement ID so new wording is classified against it instead of duplicating it"
+  before_analyze:
+    command: "speckit.speckit-inventory.list"
+    optional: true
+    prompt: "Load the live requirement inventory before analyzing artifacts?"
+    description: "Provide the complete ID set so cross-artifact coverage gaps are detected without grep"
+
+tags:
+  - "inventory"
+  - "requirements"
+  - "context"
+  - "agentic-workflow"

@@ -1,0 +1,42 @@
+schema_version: "1.0"
+
+preset:
+  id: "inventory-alignment"
+  name: "Inventory Alignment"
+  version: "0.1.0"
+  description: "Opt-in prompt wrappers that consult a read-only requirement inventory before specify and analyze"
+  author: "Yash Chindam"
+  repository: "https://github.com/Yash-Chindam/spec-kit-inventory-alignment"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.9.0"
+
+provides:
+  templates:
+    - type: "command"
+      name: "speckit.specify"
+      file: "commands/speckit.specify.md"
+      description: "Consult the inventory before creating or updating requirements"
+      replaces: "speckit.specify"
+      strategy: "wrap"
+
+    - type: "command"
+      name: "speckit.analyze"
+      file: "commands/speckit.analyze.md"
+      description: "Use the inventory as a complete input to cross-artifact analysis"
+      replaces: "speckit.analyze"
+      strategy: "wrap"
+
+    - type: "template"
+      name: "tasks-template"
+      file: "templates/tasks-template.md"
+      description: "Document the optional `covers:` field linking tasks to requirement IDs"
+      replaces: "tasks-template"
+      strategy: "append"
+
+tags:
+  - "inventory"
+  - "alignment"
+  - "requirements"
+  - "workflow"
